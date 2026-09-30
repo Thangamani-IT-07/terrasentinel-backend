@@ -87,7 +87,7 @@ app.get('/api/risk-log', async (req, res) => {
   }
 });
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
-  console.log(`Backend server running on https://terrasentinel-ml.onrender.com;
+  console.log(`Backend server running on port ${PORT}`);
 });
