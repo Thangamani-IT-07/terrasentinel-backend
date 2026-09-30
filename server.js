@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Test route - check if server is alive
 app.get('/', (req, res) => {
-  res.send('TerraSentinel AI Backend is running');
+  res.send('TerraSentinel Backend is running');
 });
 
 // Main route - gets risk prediction from the AI model
@@ -24,7 +24,7 @@ app.post('/api/risk-check', async (req, res) => {
   try {
     const { rainfall, soil_moisture, slope_angle } = req.body;
 
-    const response = await axios.post('http://127.0.0.1:5000/predict', {
+    const response = await axios.post('https://terrasentinel-ml.onrender.com/predict', {
       rainfall,
       soil_moisture,
       slope_angle
@@ -89,5 +89,5 @@ app.get('/api/risk-log', async (req, res) => {
 
 const PORT = 5001;
 app.listen(PORT, () => {
-  console.log(`Backend server running on http://127.0.0.1:${PORT}`);
+  console.log(`Backend server running on https://terrasentinel-ml.onrender.com;
 });
